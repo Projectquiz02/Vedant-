@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Connect</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        .hero {
+            background-color: rgba(248, 248, 248, 0.8);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .info {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input, form select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="file"] {
+            border: none;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            background: #fff;
+        }
+
+        .car-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .car-card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .car-card p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .hero h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Car Connect</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#buy">Buy a Car</a></li>
+                    <li><a href="#sell">Sell a Car</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <h2>Welcome to Car Connect</h2>
+            <p>Your go-to platform for buying and selling cars.</p>
+        </section>
+        <section id="buy" class="info">
+            <div class="container">
+                <h2>Buy a Car</h2>
+                <p>Explore our extensive list of second-hand cars for sale.</p>
+                <button id="viewCarsBtn">View Cars</button>
+                <div id="carsList" class="hidden">
+                    <!-- Existing cars for sale -->
+                    <div class="car-card">
+                        <img src="https://i.ibb.co/pxpMrkH/IMG-7799.jpg" alt="Mahindra XUV700">
+                        <h3>Mahindra XUV700</h3>
+                        <p><strong>Price:</strong> ₹20,00,000</p>                        
+                        <p><strong>Owner Name:</strong> Amit Singh</p>
+                        <p><strong>Contact:</strong> 9988776655</p>
+                        <p><strong>Registration Number:</strong> MH01AB1234</p>
+                        <p><strong>Location:</strong> Mumbai </p>
+                    </div>
+
+ <div class="car-card">
+                       <img src="https://i.ibb.co/ZzPnxKg/IMG-7798.jpg" alt="IMG-7798">
+                        <h3>Hyundai Creta</h3>
+                       <p><strong>Price:</strong> ₹15,00,000</p>                    
+<p><strong>Owner Name:</strong> Rajesh Sharma </p><p><strong>Contact</strong> 9876543210</p>
+<p><strong>Registration Number:</strong> MH20AK1294</p>
+                        <p><strong>Location:</strong> Chh.Sambhajinagar </p>
+                    </div>
+                    <div class="car-card">
+                       <img src="https://i.ibb.co/L1y7Tg9/IMG-7796.jpg" alt="IMG-7796">
+                    <h3>Land Rover Defender</h3>
+<p><strong>Price:</strong> ₹30,00,000</p>                       
+<p><strong>Owner Name:</strong> Rohit Yadav </p><p><strong>Contact</strong> 1199882238</p>
+<p><strong>Registration Number:</strong> MH18DU1298</p>
+                        <p><strong>Location:</strong> Dhule </p>
+                    </div>
+                    <div class="car-card">
+                      <img src="https://i.ibb.co/svCTmcr/IMG-7794.jpg" alt="IMG-7794">
+                        <h3>Mercedes-Benz EQS Maybach</h3>
+                      <p><strong>Price:</strong> ₹1,00,00,000</p>                     
+<p><strong>Owner Name:</strong> Shivaji Patil </p><p><strong>Contact</strong> 0011223344</p>
+<p><strong>Registration Number:</strong> MH20AB7575</p>
+                        <p><strong>Location:</strong> Kannad </p>
+                    </div>
+                    <!-- Add similar blocks for other cars -->
+                </div>
+            </div>
+        </section>
+        <section id="sell" class="info">
+            <div class="container">
+                <h2>Sell a Car</h2>
+                <form id="sellCarForm">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" id="carModel" name="carModel" required>
+                    
+                    <label for="carPrice">Price (in ₹):</label>
+                    <input type="number" id="carPrice" name="carPrice" required>
+                    
+                    <label for="carRegNumber">Car Registration Number:</label>
+                    <input type="text" id="carRegNumber" name="carRegNumber" required>
+                    
+                    <label for="carLocation">Car Location:</label>
+                    <input type="text" id="carLocation" name="carLocation" required>
+                    
+                    <label for="ownerName">Owner's Name:</label>
+                    <input type="text" id="ownerName" name="ownerName" required>
+                    
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required>
+                    
+                    <label for="carImage">Upload Car Image:</label>
+                    <input type="file" id="carImage" name="carImage" accept="image/*" required>
+                    
+                    <button type="submit">List Car</button>
+                </form>
+            </div>
+        </section>
+        <section id="contact" class="info">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>For any inquiries, please email us at <a href="mailto:support@carconnect.com">support@carconnect.com</a></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Car Connect. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewCarsBtn = document.getElementById('viewCarsBtn');
+            const carsList = document.getElementById('carsList');
+
+            viewCarsBtn.addEventListener('click', () => {
+                if (carsList.classList.contains('hidden')) {
+                    carsList.classList.remove('hidden');
+                    viewCarsBtn.textContent = 'Hide Cars';
+                } else {
+                    carsList.classList.add('hidden');
+                    viewCarsBtn.textContent = 'View Cars';
+                }
+            });
+
+            const sellCarForm = document.getElementById('sellCarForm');
+
+            sellCarForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+
+                // Capture the form input values
+                const carModel = document.getElementById('carModel').value;
+                const carPrice = document.getElementById('carPrice').value;
+                const carRegNumber = document.getElementById('carRegNumber').value;
+                const carLocation = document.getElementById('carLocation').value;
+                const ownerName = document.getElementById('ownerName').value;
+                const contactNumber = document.getElementById('contactNumber').value;
+                const carImageInput = document.getElementById('carImage');
+                const carImageURL = URL.createObjectURL(carImageInput.files[0]);
+
+            // Create new car card for listed car
+            const carCard = document.createElement('div');
+            carCard.classList.add('car-card');
+
+            carCard.innerHTML = `
+                <img src="${carImageURL}" alt="${carModel}">
+                <h3>${carModel}</h3>
+                <p><strong>Price:</strong> ₹${carPrice}</p>
+                <p><strong>Owner Name:</strong> ${ownerName}</p>
+                <p><strong>Contact:</strong> ${contactNumber}</p>
+                <p><strong>Registration Number:</strong> ${carRegNumber}</p>
+                <p><strong>Location:</strong> ${carLocation}</p>
+            `;
+
+            carsList.appendChild(carCard);
+            carsList.classList.remove('hidden');
+            viewCarsBtn.textContent = 'Hide Cars';
+
+            // Clear form after submission
+            sellCarForm.reset();
+        });
+    });
+</script>
+</body>
+</html>
