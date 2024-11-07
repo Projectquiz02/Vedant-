@@ -172,7 +172,7 @@
         <section id="buy" class="info">
             <div class="container">
                 <h2>Buy a Car</h2>
-                <p>Explore our extensive list of second-hand cars for sale.</p>
+                <p>Explore our extensive list of second-hand cars for sale and click on image to connect with car seller.</p>
                 <button id="viewCarsBtn">View Cars</button>
                 <div id="carsList" class="hidden">
                     <!-- Existing cars for sale -->
@@ -180,11 +180,32 @@
                         <img src="https://i.ibb.co/pxpMrkH/IMG-7799.jpg" alt="Mahindra XUV700" onclick="openContactForm('Mahindra XUV700')">
                         <h3>Mahindra XUV700</h3>
                         <p><strong>Price:</strong> ₹20,00,000</p>                        
-                        <p><strong>Owner Name:</strong> Amit Singh</p>
-                        <p><strong>Contact:</strong> 9988776655</p>
-                        <p><strong>Registration Number:</strong> MH01AB1234</p>
+                      <p><strong>Registration Number:</strong> MH01AB1234</p>
                         <p><strong>Location:</strong> Mumbai</p>
                     </div>
+
+ <div class="car-card">
+                       <img src="https://i.ibb.co/ZzPnxKg/IMG-7798.jpg" alt="IMG-7798">
+                        <h3>Hyundai Creta</h3>
+                       <p><strong>Price:</strong> ₹15,00,000</p>                    
+<p><strong>Registration Number:</strong> MH20AK1294</p>
+                        <p><strong>Location:</strong> Chh.Sambhajinagar </p>
+                    </div>
+                    <div class="car-card">
+                       <img src="https://i.ibb.co/L1y7Tg9/IMG-7796.jpg" alt="IMG-7796">
+                    <h3>Land Rover Defender</h3>
+<p><strong>Price:</strong> ₹30,00,000</p>                       
+<p><strong>Registration Number:</strong> MH18DU1298</p>
+                        <p><strong>Location:</strong> Dhule </p>
+                    </div>
+                    <div class="car-card">
+                      <img src="https://i.ibb.co/svCTmcr/IMG-7794.jpg" alt="IMG-7794">
+                        <h3>Mercedes-Benz EQS Maybach</h3>
+                      <p><strong>Price:</strong> ₹1,00,00,000</p>                     
+<p><strong>Registration Number:</strong> MH20AB7575</p>
+                        <p><strong>Location:</strong> Kannad </p>
+                    </div>
+
                     <!-- Add similar blocks for other cars -->
                 </div>
             </div>
@@ -205,11 +226,7 @@
                     <label for="carLocation">Car Location:</label>
                     <input type="text" id="carLocation" name="carLocation" required>
                     
-                    <label for="ownerName">Owner's Name:</label>
-                    <input type="text" id="ownerName" name="ownerName" required>
-                    
-                    <label for="contactNumber">Contact Number:</label>
-                    <input type="tel" id="contactNumber" name="contactNumber" required>
+               
                     
                     <label for="carImage">Upload Car Image:</label>
                     <input type="file" id="carImage" name="carImage" accept="image/*" required>
