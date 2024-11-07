@@ -1,219 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Car Connect</title>
     <style>
+        /* Global Styles */
         body {
-            background: radial-gradient(circle, #e0f7fa, #b2ebf2);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #212121;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
-        .container {
-            max-width: 500px;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        header {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            padding: 15px;
             text-align: center;
         }
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 2.5em;
-            color: #007bff;
-            font-weight: 700;
+        header h1 {
+            margin: 0;
+            font-size: 2em;
         }
 
-        .square {
-            width: 100%;
-            height: 120px;
-            border: 2px solid #007bff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            border-radius: 10px;
-            background-color: #e3f2fd;
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
         }
 
-        .square:hover {
-            background-color: #bbdefb;
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
         }
 
-        .square.X {
-            color: #007bff;
-        }
-
-        .square.O {
-            color: #4caf50;
-        }
-
-        #message {
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        #message.winner {
-            color: #4caf50;
-        }
-
-        #message.draw {
-            color: #ff5722;
-        }
-
-        #reset {
-            margin-top: 20px;
-            background-color: #007bff;
-            border: none;
-            color: #ffffff;
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
             font-size: 1.2em;
-            padding: 12px 20px;
+        }
+        .hero {
+            background-color: rgba(248, 248, 248, 0.8);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        .info {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 20px;
             border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        #reset:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        @media (max-width: 767px) {
-            .square {
-                height: 100px;
-                font-size: 3em;
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+        }
+
+        form input, form select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form input[type="file"] {
+            border: none;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .car-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            background: #fff;
+        }
+
+        .car-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .car-card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .car-card p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            .hero h2 {
+                font-size: 1.5em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Tic-Tac-Toe</h1>
-        <div id="message" class="mb-3"></div>
-        <div class="row">
-            <div class="col-4">
-                <div class="square" data-index="0"></div>
-            </div>
-            <div class="col-4">
-                <div class="square" data-index="1"></div>
-            </div>
-            <div class="col-4">
-                <div class="square" data-index="2"></div>
-            </div>
+    <header>
+        <div class="container">
+            <h1>Car Connect</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#buy">Buy a Car</a></li>
+                    <li><a href="#sell">Sell a Car</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="square" data-index="3"></div>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <h2>Welcome to Car Connect</h2>
+            <p>Your go-to platform for buying and selling cars.</p>
+        </section>
+        <section id="buy" class="info">
+            <div class="container">
+                <h2>Buy a Car</h2>
+                <p>Explore our extensive list of second-hand cars for sale.</p>
+                <button id="viewCarsBtn">View Cars</button>
+                <div id="carsList" class="hidden">
+                    <!-- Existing cars for sale -->
+                    <div class="car-card">
+                        <img src="https://i.ibb.co/pxpMrkH/IMG-7799.jpg" alt="Mahindra XUV700" onclick="openContactForm('Mahindra XUV700')">
+                        <h3>Mahindra XUV700</h3>
+                        <p><strong>Price:</strong> ₹20,00,000</p>                        
+                        <p><strong>Owner Name:</strong> Amit Singh</p>
+                        <p><strong>Contact:</strong> 9988776655</p>
+                        <p><strong>Registration Number:</strong> MH01AB1234</p>
+                        <p><strong>Location:</strong> Mumbai</p>
+                    </div>
+                    <!-- Add similar blocks for other cars -->
+                </div>
             </div>
-            <div class="col-4">
-                <div class="square" data-index="4"></div>
+        </section>
+        <section id="sell" class="info">
+            <div class="container">
+                <h2>Sell a Car</h2>
+                <form id="sellCarForm">
+                    <label for="carModel">Car Model:</label>
+                    <input type="text" id="carModel" name="carModel" required>
+                    
+                    <label for="carPrice">Price (in ₹):</label>
+                    <input type="number" id="carPrice" name="carPrice" required>
+                    
+                    <label for="carRegNumber">Car Registration Number:</label>
+                    <input type="text" id="carRegNumber" name="carRegNumber" required>
+                    
+                    <label for="carLocation">Car Location:</label>
+                    <input type="text" id="carLocation" name="carLocation" required>
+                    
+                    <label for="ownerName">Owner's Name:</label>
+                    <input type="text" id="ownerName" name="ownerName" required>
+                    
+                    <label for="contactNumber">Contact Number:</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required>
+                    
+                    <label for="carImage">Upload Car Image:</label>
+                    <input type="file" id="carImage" name="carImage" accept="image/*" required>
+                    
+                    <button type="submit">List Car</button>
+                </form>
             </div>
-            <div class="col-4">
-                <div class="square" data-index="5"></div>
+        </section>
+        <section id="contact" class="info">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>For any inquiries, please email us at <a href="mailto:support@carconnect.com">support@carconnect.com</a></p>
             </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Car Connect. All rights reserved.</p>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <div class="square" data-index="6"></div>
-            </div>
-            <div class="col-4">
-                <div class="square" data-index="7"></div>
-            </div>
-            <div class="col-4">
-                <div class="square" data-index="8"></div>
-            </div>
-        </div>
-        <button id="reset" class="btn">Reset Game</button>
-    </div>
-
+    </footer>
     <script>
-        const squares = document.querySelectorAll('.square');
-        const message = document.getElementById('message');
-        const resetButton = document.getElementById('reset');
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewCarsBtn = document.getElementById('viewCarsBtn');
+            const carsList = document.getElementById('carsList');
 
-        let currentPlayer = 'X';
-        let board = ['', '', '', '', '', '', '', '', ''];
-        let gameActive = true;
-
-        const winningCombinations = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
-        ];
-
-        function checkWin() {
-            for (let combination of winningCombinations) {
-                const [a, b, c] = combination;
-                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-                    return board[a];
+            viewCarsBtn.addEventListener('click', () => {
+                if (carsList.classList.contains('hidden')) {
+                    carsList.classList.remove('hidden');
+                    viewCarsBtn.textContent = 'Hide Cars';
+                } else {
+                    carsList.classList.add('hidden');
+                    viewCarsBtn.textContent = 'View Cars';
                 }
-            }
-            return null;
-        }
-
-        function checkDraw() {
-            return board.every(cell => cell);
-        }
-
-        function handleClick(event) {
-            const index = event.target.dataset.index;
-            
-            if (!gameActive || board[index]) return;
-            
-            board[index] = currentPlayer;
-            event.target.textContent = currentPlayer;
-            event.target.classList.add(currentPlayer);
-            
-            const winner = checkWin();
-            if (winner) {
-                message.textContent = `${winner} wins!`;
-                message.classList.add('winner');
-                gameActive = false;
-                return;
-            }
-            
-            if (checkDraw()) {
-                message.textContent = "It's a draw!";
-                message.classList.add('draw');
-                gameActive = false;
-                return;
-            }
-            
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        }
-
-        function resetGame() {
-            board = ['', '', '', '', '', '', '', '', ''];
-            gameActive = true;
-            currentPlayer = 'X';
-            squares.forEach(square => {
-                square.textContent = '';
-                square.classList.remove('X', 'O');
             });
-            message.textContent = '';
-            message.classList.remove('winner', 'draw');
-        }
+        });
 
-        squares.forEach(square => square.addEventListener('click', handleClick));
-        resetButton.addEventListener('click', resetGame);
+        function openContactForm(carModel) {
+            const contactFormWindow = window.open('', '_blank', 'width=400,height=500');
+            contactFormWindow.document.write(`
+                <html>
+                <head>
+                    <title>Contact for ${carModel}</title>
+                </head>
+                <body>
+                    <h2>Contact for ${carModel}</h2>
+                    <form onsubmit="event.preventDefault(); alert('We will reach you soon. Thank you for contacting!');">
+                        <label for="buyerName">Your Name:</label>
+                        <input type="text" id="buyerName" name="buyerName" required><br><br>
+                        
+                        <label for="buyerContact">Your Contact Number:</label>
+                        <input type="tel" id="buyerContact" name="buyerContact" required><br><br>
+
+                        <button type="submit">Submit</button>
+                    </form>
+                </body>
+                </html>
+            `);
+            contactFormWindow.document.close();
+        }
     </script>
 </body>
 </html>
